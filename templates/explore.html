@@ -261,22 +261,58 @@
     <div class="car-container">
       <!-- Cars 1 to 32 -->
       <!-- Car 1 -->
-      <div class="car-card">
-        <img
-          src="https://imgd.aeplcdn.com/664x374/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
-          alt="Car Image"
-          class="car-image"
-        />
-        <h2 class="car-name">Tesla Model 3</h2>
-        <p class="car-detail"><strong>Lowest Price:</strong> $40,000</p>
-        <p class="car-detail"><strong>Engine Type:</strong> Electric</p>
-        <div class="car-info-hover">
-          <p><strong>Mileage:</strong> 200,000 miles</p>
-          <p><strong>Horsepower:</strong> 76 hp</p>
+      <!-- <form method="POST" action="/explore.html">
+          <div class="car-card">
+            <img
+              src="https://imgd.aeplcdn.com/664x374/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
+              alt="Car Image"
+              class="car-image", name="car-url"
+            />
+            <h2 class="car-name" name="carname">Tesla Model 3</h2>
+            <p class="car-detail" name="price"><strong>Lowest Price:</strong> $40,000</p>
+            <p class="car-detail" name="engine"><strong>Engine Type:</strong> Electric</p>
+            <div class="car-info-hover">
+              <p name="mileage"><strong>Mileage:</strong> 200,000 miles</p>
+              <p name="horsepower"><strong>Horsepower:</strong> 76 hp</p>
+            </div>
+            <button type="submit">save</button>
+          </div>
+      </form> -->
+      <form method="POST" action="/explore.html">
+        <div class="car-card">
+            <!-- Car image (input as hidden or dynamically set value) -->
+            <input type="hidden" name="car-url" value="https://imgd.aeplcdn.com/664x374/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0&q=80" />
+    
+            <!-- Car name (input as hidden or dynamically set value) -->
+            <input type="hidden" name="carname" value="Tesla Model 3" />
+    
+            <!-- Price (hidden or dynamically set value) -->
+            <input type="hidden" name="price" value="$40,000" />
+    
+            <!-- Engine type (hidden or dynamically set value) -->
+            <input type="hidden" name="engine" value="Electric" />
+    
+            <!-- Mileage (hidden or dynamically set value) -->
+            <input type="hidden" name="mileage" value="200,000 miles" />
+    
+            <!-- Horsepower (hidden or dynamically set value) -->
+            <input type="hidden" name="horsepower" value="76 hp" />
+    
+            <!-- Display car image -->
+            <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/37138/model-3-exterior-right-front-three-quarter.jpeg?isig=0&q=80" alt="Car Image" class="car-image" />
+    
+            <h2 class="car-name">Tesla Model 3</h2>
+            <p class="car-detail"><strong>Lowest Price:</strong> $40,000</p>
+            <p class="car-detail"><strong>Engine Type:</strong> Electric</p>
+            <div class="car-info-hover">
+                <p><strong>Mileage:</strong> 200,000 miles</p>
+                <p><strong>Horsepower:</strong> 76 hp</p>
+            </div>
+    
+            <button type="submit">Save</button>
         </div>
-        <button class="save-btn">Save</button>
-      </div>
-
+    </form>
+    
       <!-- Car 2 -->
       <div class="car-card">
         <img
@@ -291,7 +327,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 3 -->
@@ -308,7 +344,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
       <!-- Car 4 -->
       <div class="car-card">
@@ -324,7 +360,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 5 -->
@@ -341,7 +377,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 6 -->
@@ -358,7 +394,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 7 -->
@@ -375,7 +411,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 8 -->
@@ -392,7 +428,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 9 -->
@@ -409,7 +445,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 10 -->
@@ -426,7 +462,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
       <!-- Car 11 -->
       <div class="car-card">
@@ -442,7 +478,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 12 -->
@@ -459,7 +495,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 13 -->
@@ -476,7 +512,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 14 -->
@@ -493,7 +529,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 15 -->
@@ -510,7 +546,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 16 -->
@@ -527,7 +563,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 17 -->
@@ -544,7 +580,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 18 -->
@@ -561,7 +597,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 19 -->
@@ -578,7 +614,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 20 -->
@@ -595,7 +631,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 21 -->
@@ -612,7 +648,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 22 -->
@@ -629,7 +665,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 23 -->
@@ -646,7 +682,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 24 -->
@@ -663,7 +699,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 25 -->
@@ -680,7 +716,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 26 -->
@@ -697,7 +733,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 27 -->
@@ -714,7 +750,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 28 -->
@@ -731,7 +767,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 29 -->
@@ -748,7 +784,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
 
       <!-- Car 30 -->
@@ -765,7 +801,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
       <!-- Car 31 -->
       <div class="car-card">
@@ -781,7 +817,7 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
       <!-- Car 32 -->
       <div class="car-card">
@@ -797,92 +833,8 @@
           <p><strong>Mileage:</strong> 200,000 miles</p>
           <p><strong>Horsepower:</strong> 76 hp</p>
         </div>
-        <button class="save-btn">Save</button>
+        <button type="submit">save</button>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const isLoggedIn = () => !!localStorage.getItem("loggedInUser");
-
-        const getSavedCars = () =>
-          JSON.parse(localStorage.getItem("savedCars")) || [];
-
-        const saveCar = (carDetails, button) => {
-          const savedCars = getSavedCars();
-
-          // Check if the car is already saved
-          const isAlreadySaved = savedCars.some(
-            (car) => car.name === carDetails.name
-          );
-          if (isAlreadySaved) {
-            alert("Car already saved!");
-            return;
-          }
-
-          // Save car details
-          savedCars.push(carDetails);
-          localStorage.setItem("savedCars", JSON.stringify(savedCars));
-          alert("Car saved successfully!");
-
-          // Update button text and disable further clicks
-          button.textContent = "Saved";
-          button.style.backgroundColor = "#ffcc80"; // Slightly greyed out orange
-          button.style.cursor = "not-allowed";
-          button.disabled = true;
-        };
-
-        const updateSaveButtonsState = () => {
-          const savedCars = getSavedCars();
-          document.querySelectorAll(".car-card").forEach((carCard) => {
-            const carName = carCard
-              .querySelector(".car-name")
-              .textContent.trim();
-            const saveButton = carCard.querySelector(".save-btn");
-
-            if (savedCars.some((car) => car.name === carName)) {
-              saveButton.textContent = "Saved";
-              saveButton.style.backgroundColor = "#ffcc80"; // Slightly greyed out orange
-              saveButton.style.cursor = "not-allowed";
-              saveButton.disabled = true;
-            } else {
-              saveButton.textContent = "Save";
-              saveButton.style.backgroundColor = "#f39c12"; // Active orange
-              saveButton.style.cursor = "pointer";
-              saveButton.disabled = false;
-            }
-          });
-        };
-
-        const attachSaveButtonListeners = () => {
-          document.querySelectorAll(".save-btn").forEach((button) => {
-            button.addEventListener("click", (event) => {
-              const carCard = event.target.closest(".car-card");
-
-              const carDetails = {
-                name: carCard.querySelector(".car-name").textContent.trim(),
-                price: carCard
-                  .querySelector(".car-detail strong")
-                  .textContent.trim(),
-                engineType: carCard
-                  .querySelector(".car-detail:last-child")
-                  .textContent.trim(),
-                image: carCard.querySelector(".car-image").src,
-              };
-
-              if (!isLoggedIn()) {
-                alert("You need to be logged in to save a car.");
-                return;
-              }
-
-              saveCar(carDetails, button);
-            });
-          });
-        };
-
-        updateSaveButtonsState();
-        attachSaveButtonListeners();
-      });
-    </script>
-    <script src="/modals.js" defer></script>
   </body>
 </html>
