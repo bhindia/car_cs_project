@@ -4,15 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkorange;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>You have logged out successfully!</h1>
         <p>Thank you for visiting. You have been logged out from the system.</p>
-        <a href="{{ url_for('login') }}">Login Again</a>
-        <br><br>
-        <button onclick="window.location.href='{{ url_for('login') }}'">Back to Login</button>
+        <br>
+        <button onclick="window.location.href='{{ url_for('login') }}'">Login Again</button>
     </div>
 </body>
 </html>
