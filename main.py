@@ -1,8 +1,9 @@
+import sqlite3
 from flask import Flask, redirect, url_for, render_template
 app=Flask(__name__,template_folder="templates")
 @app.route("/")
 def base():
-    return render_template("home.html")
+    return render_template("Login.html")
 
 @app.route("/home.html")
 def home():
