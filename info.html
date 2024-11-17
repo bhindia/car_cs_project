@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .navbar-btn {
+        font-size: 1rem;
+        padding: 5px 10px;
+        background-color: black;
+        border: 1px solid #f39c12;
+        border-radius: 5px;
+        color: #f39c12;
+        cursor: pointer;
+      }
+
+      .navbar-btn:hover {
+        background-color: #d35400;
+      }
+
+      /* Add these CSS rules to your existing styles */
+      .nav-links a.active {
+        pointer-events: none; /* Prevents clicking */
+        cursor: default; /* Changes cursor to default instead of pointer */
+        background-color: #f39c12; /* Shows it's active */
+        color: #000; /* Changed text color for better contrast */
+        opacity: 1; /* Optional: makes it look slightly disabled */
+      }
+
+      /* Optional: Remove hover effect for active link */
+      .nav-links a.active:hover {
+        background-color: #f39c12;
+        color: #000;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        min-height: 100vh;
+      }
+      /* Container for the About Us section */
+      .about-us {
+        padding-top: 120px;
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
+        padding: 50px 20px;
+        text-align: center;
+        font-family: "Arial", sans-serif;
+      }
+
+      /* Heading style */
+      .about-us h1 {
+        font-size: 36px;
+        color: #f39c12; /* Gold accent color for the heading */
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      /* Paragraph style */
+      .about-us p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0 auto 30px;
+        max-width: 800px;
+        padding: 0 20px;
+        font-weight: 300; /* Lighter font weight */
+      }
+
+      /* Button style */
+      .about-us .cta-button {
+        background-color: #f39c12; /* Gold accent color */
+        color: #000;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease;
+      }
+
+      .about-us .cta-button:hover {
+        background-color: #e67e22; /* Darker gold on hover */
+      }
+      .navbar {
+        background-color: #111;
+        padding: 1rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        z-index: 1000;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #f39c12;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #f39c12;
+        color: #000;
+      }
+
+      /* Responsive design for smaller screens */
+      @media (max-width: 600px) {
+        .navbar {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .nav-logo {
+          margin-bottom: 1rem;
+        }
+
+        .nav-links {
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-links a {
+          font-size: 1rem;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="/static/images/Logoooo.jpg" alt="Logo" class="logo-img" />
+      </div>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="filter.html">Filter</a>
+        <a href="info.html">Info</a>
+        <a href="save.html" id="saveBtn" style="display: none">Saved</a>
+        <a href="#" id="logoutBtn" style="display: none">Logout</a>
+      </div>
+    </nav>
+    <div class="about-us">
+      <h1>About Us</h1>
+      <p>
+        We are a team of three passionate individuals—Swayam, Aryan, and
+        Ashwin—united by a common goal: to revolutionize the way people discover
+        and purchase cars. With so many options available, finding the right car
+        can feel like a daunting task. We realized that while there are
+        countless ways to buy a car, the real challenge lies in finding the
+        perfect one that fits your needs and preferences.
+      </p>
+      <p>
+        That’s why we decided to create a solution that makes car shopping
+        simpler, smarter, and more personalized. Our platform is designed to
+        help you navigate through the overwhelming number of choices and find
+        the best car that matches your lifestyle, preferences, and budget.
+        Whether you're a first-time buyer or an experienced enthusiast, we
+        believe the journey to your ideal car should be enjoyable and
+        effortless.
+      </p>
+      <p>
+        At the heart of what we do is a commitment to providing you with the
+        best tools, recommendations, and information to ensure you make an
+        informed decision. No more wasting time searching through endless
+        listings—our innovative approach puts the car you're looking for right
+        at your fingertips.
+      </p>
+      <a href="explore.html">
+        <button class="cta-button">Start Your Journey</button>
+      </a>
+    </div>
+    <script src="/modals.js" defer></script>
+  </body>
+</html>

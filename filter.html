@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* Add these CSS rules to your existing styles */
+      .nav-links a.active {
+        pointer-events: none; /* Prevents clicking */
+        cursor: default; /* Changes cursor to default instead of pointer */
+        background-color: #f39c12; /* Shows it's active */
+        color: #000; /* Changed text color for better contrast */
+        opacity: 1; /* Optional: makes it look slightly disabled */
+      }
+
+      /* Optional: Remove hover effect for active link */
+      .nav-links a.active:hover {
+        background-color: #f39c12;
+        color: #000;
+      }
+      .navbar {
+        background-color: #111;
+        padding: 1rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+        z-index: 1000;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #f39c12;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background-color: #f39c12;
+        color: #000;
+      }
+
+      /* Responsive design for smaller screens */
+      @media (max-width: 600px) {
+        .navbar {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .nav-logo {
+          margin-bottom: 1rem;
+        }
+
+        .nav-links {
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-links a {
+          font-size: 1rem;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+      /* Global styles for the body */
+      input[type="type"] {
+        padding: 12px;
+        font-size: 1em;
+        border: 2px solid #f39c12; /* Orange border */
+        border-radius: 5px;
+        background-color: #111; /* Darker background for inputs */
+        color: #f39c12; /* Orange text inside inputs */
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input[type="type"]::placeholder {
+        color: #f39c12; /* Orange placeholder text */
+        opacity: 0.8; /* Slightly lighter */
+      }
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #000; /* Black background */
+        color: #f39c12; /* Orange text color */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 100px; /* Add space for content alignment */
+      }
+
+      /* Centering the filter container */
+      .filter-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #222; /* Dark gray container */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft white shadow */
+        width: 100%;
+        max-width: 600px;
+        box-sizing: border-box;
+      }
+
+      /* Style for the form elements */
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+      }
+
+      /* Label styling */
+      label {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #f39c12; /* Orange text */
+      }
+
+      /* Input and select fields */
+      input[type="text"],
+      input[type="number"],
+      select {
+        padding: 12px;
+        font-size: 1em;
+        border: 2px solid #f39c12; /* Orange border */
+        border-radius: 5px;
+        background-color: #111; /* Darker background for inputs */
+        color: #f39c12; /* Orange text inside inputs */
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input::placeholder {
+        color: #f39c12; /* Orange placeholder text */
+        opacity: 0.8; /* Slightly lighter */
+      }
+
+      /* Dropdown options */
+      select {
+        appearance: none;
+      }
+
+      select option {
+        background-color: #000; /* Black dropdown background */
+        color: #f39c12; /* Orange options */
+      }
+
+      /* Button styling */
+      button {
+        padding: 12px;
+        background-color: #f39c12; /* Orange button */
+        color: #000; /* Black text */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #d35400; /* Slightly darker orange */
+      }
+
+      /* Responsive adjustments for small screens */
+      @media (max-width: 600px) {
+        .filter-container {
+          padding: 20px;
+        }
+
+        input[type="number"] {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Cars</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="/static/images/Logoooo.jpg" alt="Logo" class="logo-img" />
+      </div>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="filter.html">Filter</a>
+        <a href="info.html">Info</a>
+        <a href="save.html" id="saveBtn" style="display: none">Saved</a>
+        <a href="#" id="logoutBtn" style="display: none">Logout</a>
+      </div>
+    </nav>
+
+    <div class="filter-container">
+      <h1>Filter Cars</h1>
+      <form action="explore.html" method="GET">
+        <!-- Company Filter -->
+        <label for="company">Company:</label>
+        <input
+          type="type"
+          id="company"
+          name="company"
+          placeholder="Enter company name"
+          value=""
+        />
+
+        <!-- Model Filter -->
+        <label for="model">Model:</label>
+        <input
+          type="type"
+          id="model"
+          name="model"
+          placeholder="Enter car model"
+          value=""
+        />
+
+        <!-- Price Range Filter -->
+        <label>Price Range:</label>
+        <div style="display: flex; gap: 10px">
+          <input
+            type="number"
+            id="price-min"
+            name="price-min"
+            min="0"
+            placeholder="Enter Minimum Price"
+            value=""
+          />
+          <input
+            type="number"
+            id="price-max"
+            name="price-max"
+            placeholder="Enter Maximum Price"
+            value=""
+          />
+        </div>
+
+        <!-- Car Type Filter -->
+        <label for="car-type">Car Type:</label>
+        <select id="car-type" name="car-type" aria-label="Select Car Type">
+          <option value="" selected>Select car type</option>
+          <option value="gasoline">Gasoline</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="electric">Electric</option>
+        </select>
+
+        <!-- Mileage Range Filter -->
+        <label>Mileage Range (mpg):</label>
+        <div style="display: flex; gap: 10px">
+          <input
+            type="number"
+            id="mileage-min"
+            name="mileage-min"
+            min="0"
+            placeholder="Min Mileage"
+            value=""
+          />
+          <input
+            type="number"
+            id="mileage-max"
+            name="mileage-max"
+            placeholder="Max Mileage"
+            value=""
+          />
+        </div>
+
+        <!-- Horsepower Range Filter -->
+        <label>Horsepower Range:</label>
+        <div style="display: flex; gap: 10px">
+          <input
+            type="number"
+            id="horsepower-min"
+            name="horsepower-min"
+            min="0"
+            placeholder="Min Horsepower"
+            value=""
+          />
+          <input
+            type="number"
+            id="horsepower-max"
+            name="horsepower-max"
+            placeholder="Max Horsepower"
+            value=""
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Apply Filters</button>
+      </form>
+    </div>
+    <script src="/modals.js"></script>
+  </body>
+</html>
