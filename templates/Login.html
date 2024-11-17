@@ -17,5 +17,12 @@
 
         <button type="submit">Login</button>
     </form>
+    <script>
+        function redirectToHome(event) {
+            event.preventDefault();  // Prevent the form from submitting the traditional way
+            // You can add logic here to check the credentials, etc.
+            window.location.href = "home.html";  // Redirect to home.html
+        }
+    </script>
 </body>
 </html>
