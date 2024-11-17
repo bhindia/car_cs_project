@@ -1,0 +1,175 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Page Title{% endblock %}</title>
+    <style>
+            /* Add these CSS rules to your existing styles */
+            .nav-links a.active {
+                pointer-events: none; /* Prevents clicking */
+                cursor: default; /* Changes cursor to default instead of pointer */
+                background-color: #f39c12; /* Shows it's active */
+                color: #000; /* Changed text color for better contrast */
+                opacity: 1; /* Optional: makes it look slightly disabled */
+            }
+
+            /* Optional: Remove hover effect for active link */
+            .nav-links a.active:hover {
+                background-color: #f39c12;
+                color: #000;
+            }
+            /* Full page container */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #000;
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
+            html {
+                background-color: #000;
+            }
+            .full-page {
+                padding-top: 70px;
+                display: flex; /* Use Flexbox */
+                justify-content: center; /* Center content horizontally */
+                align-items: center; /* Center content vertically */
+                height: 100vh; /* Full height of the viewport */
+                background-color: #000; /* Black background */
+                color: #fff; /* White text color */
+                text-align: center; /* Center text within the element */
+            }
+
+            .full-page h1 {
+                font-size: 48px; /* Large text size */
+                color: #f39c12; /* Gold color for emphasis */
+                margin: 0; /* Remove default margin */
+                text-transform: uppercase; /* Uppercase text */
+                letter-spacing: 4px; /* Letter spacing for effect */
+            }
+
+            .Logo {
+                background-color: rgba(214, 211, 214, 0.807);
+                border-radius: 20px 20px 20px 20px;
+                height: 140px;
+                width: 180px;
+            }
+
+            /* Flashy animation effect */
+            @keyframes flashyAnimation {
+                0% {
+                opacity: 1;
+                transform: scale(1);
+                }
+                50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+                }
+                100% {
+                opacity: 1;
+                transform: scale(1);
+                }
+            }
+            .navbar {
+                background-color: #111;
+                padding: 1rem 2rem;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 5px rgba(243, 156, 18, 0.2);
+                z-index: 1000;
+            }
+
+            .nav-logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo-img {
+                height: 40px;
+                width: auto;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                color: #f39c12;
+                text-decoration: none;
+                font-size: 1.1rem;
+                font-weight: bold;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background-color: #f39c12;
+                color: #000;
+            }
+
+            /* Responsive design for smaller screens */
+            @media (max-width: 600px) {
+                .navbar {
+                flex-direction: column;
+                padding: 1rem;
+                }
+
+                .nav-logo {
+                margin-bottom: 1rem;
+                }
+
+                .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                }
+
+                .nav-links a {
+                font-size: 1rem;
+                padding: 0.4rem 0.8rem;
+                }
+            }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="/static/images/Logoooo.jpg" alt="Logo" class="logo-img">
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('explore') }}" class="{% if request.endpoint == 'explore' %}active{% endif %}">Explore</a>
+            <a href="{{ url_for('filter') }}" class="{% if request.endpoint == 'filter' %}active{% endif %}">Filter</a>
+            <a href="{{ url_for('info') }}" class="{% if request.endpoint == 'info' %}active{% endif %}">Info</a>
+            <a href="{{ url_for('save') }}" class="{% if request.endpoint == 'save' %}active{% endif %}">Saved</a>
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock %}
+    </div>
+</body>
+</html>

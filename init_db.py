@@ -13,7 +13,7 @@ cur.execute("INSERT INTO login (userid, username, password) VALUES (?, ?, ?)",
             )
 
 cur.execute("INSERT INTO login (userid, username, password) VALUES (?, ?, ?)",
-            (2,'swayam', 'pasword22')
+            (2,'swayam', 'password22')
             )
 
 connection.commit()
