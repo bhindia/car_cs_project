@@ -5,6 +5,25 @@ app=Flask(__name__,template_folder="templates")
 # Set a secret key for session management
 app.secret_key = os.urandom(24)  # Generates a 24-byte random key
 
+def insert_car_to_db(name, price, engine, mileage, horsepower, image_url):
+    """Insert a car's data into the database"""
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM saved_cars')
+    c.execute('''INSERT INTO saved_cars (name, price, engine_type, mileage, horsepower, image_url)
+                 VALUES (?, ?, ?, ?, ?, ?)''', (name, price, engine, mileage, horsepower, image_url))
+    conn.commit()
+    conn.close()
+
+def get_saved_cars_from_db():
+    """Retrieve all saved cars from the database"""
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    c.execute('SELECT * FROM saved_cars')
+    cars = c.fetchall()
+    conn.close()
+    return cars
+
 @app.route("/")
 def base():
     # Check if user is logged in
@@ -55,10 +74,58 @@ def logout():
 @app.route("/home.html")
 def home():
     return render_template("home.html")
+# Route for the explore page
+# @app.route('/explore.html', methods=['GET', 'POST'])
+# def explore():
+#     if request.method == 'POST':
+#         car_name = request.form['carname']
+#         car_price = request.form['price']
+#         car_engine = request.form['engine']
+#         car_mileage = request.form['mileage']
+#         car_horsepower = request.form['horsepower']
+#         car_image = request.form['car-url']
+#         print(car_name,car_price,car_engine,car_mileage,car_horsepower,car_image)
+#         # Insert the car data into the database
+#         insert_car_to_db(car_name, car_price, car_engine, car_mileage, car_horsepower, car_image)
 
-@app.route("/explore.html")
+#     return render_template('explore.html')
+@app.route('/explore.html', methods=['GET', 'POST'])
 def explore():
-    return render_template("explore.html")
+    if request.method == 'POST':
+        # Print all the form data to debug
+        print("Form Data:", request.form)
+
+        try:
+            car_name = request.form['carname']
+            car_price = request.form['price']
+            car_engine = request.form['engine']
+            car_mileage = request.form['mileage']
+            car_horsepower = request.form['horsepower']
+            car_image = request.form['car-url']
+        
+            # Printing out the received data
+            print(f"Car Name: {car_name}")
+            print(f"Price: {car_price}")
+            print(f"Engine: {car_engine}")
+            print(f"Mileage: {car_mileage}")
+            print(f"Horsepower: {car_horsepower}")
+            print(f"Image URL: {car_image}")
+
+            # Insert car data into the database
+            insert_car_to_db(car_name, car_price, car_engine, car_mileage, car_horsepower, car_image)
+            return render_template('explore.html', message="Car saved successfully!")
+        
+        except KeyError as e:
+            # Handle missing key error
+            return f"Missing form data: {e}", 400
+
+    return render_template('explore.html')
+
+# Route for the saved cars page
+@app.route('/save.html')
+def save():
+    saved_cars = get_saved_cars_from_db()
+    return render_template('save.html', saved_cars=saved_cars)
 
 @app.route("/info.html")
 def info():
@@ -68,8 +135,5 @@ def info():
 def filter():
     return render_template("filter.html")
 
-@app.route("/save.html")
-def save():
-    return render_template("save.html")
 if __name__=="__main__":
     app.run(port=5500, debug=True)
